@@ -6,9 +6,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    private static final String URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7630939";
-    private static final String USERNAME = "sql7630939";
-    private static final String PASSWORD = "HmUQTbNf6K";
+    // Replace these placeholders with your actual database connection details
+    private static final String URL = "jdbc:mysql://your-database-host:port/your-database-name";
+    private static final String USERNAME = "your-database-username";
+    private static final String PASSWORD = "your-database-password";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     static {
@@ -21,9 +22,11 @@ public class ConnectionUtil {
 
     public static Connection getConnection() {
         Properties dbProperties = new Properties();
+        // Replace the placeholders with your actual database credentials
         dbProperties.setProperty("user", USERNAME);
         dbProperties.setProperty("password", PASSWORD);
         try {
+            // Replace the URL_PLACEHOLDER with your actual database connection URL
             return DriverManager.getConnection(URL, dbProperties);
         } catch (SQLException e) {
             throw new RuntimeException("Can't create connection to DB ", e);
